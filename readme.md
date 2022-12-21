@@ -46,7 +46,7 @@
 
 ### Installation
 
-    go install github.com/plin2k/api-mocker
+    go install github.com/plin2k/api-mocker@latest
 
 ### Execute
     api-mocker --port=8080 --src=source.xml
