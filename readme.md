@@ -6,6 +6,16 @@
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/plin2k/api-mocker)
 ![GitHub last commit](https://img.shields.io/github/last-commit/plin2k/api-mocker)
 
+
+## Installation
+    go install github.com/plin2k/api-mocker@latest
+
+### If you don't have Go
+    brew install go
+
+### If there is no brew
+    Follow instructions - https://go.dev/doc/install
+
 ## Support Protocols
     HTTP/1.1
     HTTP/2 - Coming soon...
@@ -43,10 +53,6 @@
     Swagger integration - Coming soon...
 
 ## Example usage
-
-### Installation
-
-    go install github.com/plin2k/api-mocker@latest
 
 ### Execute
     api-mocker --port=8080 --src=source.xml
