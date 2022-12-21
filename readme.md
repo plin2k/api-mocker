@@ -40,7 +40,7 @@
 
 ### Installation
 
-[//]: # (    brew install api-mocker)
+    brew install api-mocker
 
     go install github.com/plin2k/api-mocker
 
