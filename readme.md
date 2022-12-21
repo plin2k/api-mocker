@@ -1,4 +1,10 @@
 # API Mocker
+[![Go Reference](https://pkg.go.dev/badge/github.com/plin2k/api-mocker.svg)](https://pkg.go.dev/github.com/plin2k/api-mocker)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/plin2k/api-mocker)
+
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/plin2k/api-mocker)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/plin2k/api-mocker)
+![GitHub last commit](https://img.shields.io/github/last-commit/plin2k/api-mocker)
 
 ## Support Protocols
     HTTP/1.1
@@ -39,8 +45,6 @@
 ## Example usage
 
 ### Installation
-
-    brew install api-mocker
 
     go install github.com/plin2k/api-mocker
 
