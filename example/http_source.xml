@@ -1,0 +1,57 @@
+<xml protocol="http">
+    <name>API V1</name>
+    <description>API Mocker Protocol - HTTP</description>
+
+    <api>
+        <group path="file" description="api">
+            <route path="file" description="Simple file show" method="GET">
+                <response type="file" description="XML file">source.xml</response>
+            </route>
+            <route path="file-attachment" description="Simple file download" method="GET">
+                <response type="file-attachment" description="XML file">./source.xml</response>
+            </route>
+            <route path="file-html" description="Html document show" method="GET">
+                <response type="file-html" description="Html file">example.html</response>
+            </route>
+        </group>
+
+        <group path="/">
+            <route path="json" description="Simple JSON show" method="GET">
+                <response type="json" description="JSON text">
+                    {
+                    "name":"{{ randFirstName 1 }} {{ randLastName }}",
+                    "number":{{ randInt 10 20 }},
+                    "float": {{ randFloat 10 1000}},
+                    "arrayInt": {{ randArrayInt 6 10 100 }},
+                    "arrayString": {{ randArrayString 6 10 }},
+                    "randSex": "{{ toTitle randSex }}",
+                    "randDate": "{{ randDate "01-01-2014" "01-01-2022" }}",
+                    "randUUID": "{{ randUUID }}",
+                    "randHash": "{{ randHash "sha256" }}",
+                    "randCity": "{{ randCity }}",
+                    "randCountry": "{{ randCountry }}",
+                    "randEmail": "{{ randEmail }}",
+                    "randDomain": "{{ randDomain }}",
+                    }
+                </response>
+            </route>
+
+            <route path="xml" description="Simple XML show" method="GET">
+                <response type="xml" description="XML text"><xml><name>name</name></xml></response>
+            </route>
+
+            <route path="toml" description="Simple TOML show" method="GET">
+                <response type="toml" description="TOML text">toml</response>
+            </route>
+
+            <route path="yaml" description="Simple YAML show" method="GET">
+                <response type="yaml" description="YAML text">yaml</response>
+            </route>
+
+            <route path="string" description="Simple String show" method="GET">
+                <cookie name="my-cookie" value="my-cookie-value"/>
+                <response type="string" description="String text">String here!</response>
+            </route>
+        </group>
+    </api>
+</xml>

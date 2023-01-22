@@ -1,47 +1,54 @@
 package main
 
 import (
-	"encoding/xml"
 	"flag"
-	"github.com/plin2k/api-mocker/domain"
-	"github.com/plin2k/api-mocker/http"
-	"io/ioutil"
 	"log"
+	"os"
+	"runtime"
+
+	"github.com/plin2k/api-mocker/config"
+	"github.com/plin2k/api-mocker/mocker"
 )
 
 func main() {
-	var port int
-	flag.IntVar(&port, "port", 8080, "Port (default: 8080)")
-	var srcFile string
-	flag.StringVar(&srcFile, "src", "source.xml", "Source file (default: source.xml)")
-	flag.Parse()
 
-	src, err := getSource(srcFile)
-	if err != nil {
-		log.Fatal(err)
+	if len(os.Args[0:]) < 1 {
+		log.Fatalln("You must pass run subcommand")
 	}
 
-	api := http.NewServer()
-	api.Construct(src)
-
-	log.Printf("Starting server on port %d", port)
-	if err = api.Run(port); err != nil {
-		log.Fatal(err)
+	switch os.Args[1] {
+	case "run":
+		run()
+	default:
+		log.Println("Unknown command")
 	}
-
 }
 
-func getSource(path string) (*domain.Source, error) {
-	data, err := ioutil.ReadFile(path)
-	if err != nil {
-		return nil, err
+func run() {
+	var (
+		cfg      = &config.Mocker{}
+		maxProcs int
+	)
+
+	runFlags := flag.NewFlagSet("run", flag.ExitOnError)
+	runFlags.StringVar(&cfg.Host, "host", "127.0.0.1", "Host (default: 127.0.0.1)")
+	runFlags.IntVar(&cfg.Port, "port", 8080, "Port (default: 8080)")
+	runFlags.StringVar(&cfg.SrcPath, "src", "api-mocker.xml", "Source file (default: api-mocker.xml)")
+	runFlags.IntVar(&maxProcs, "gomaxprocs", runtime.NumCPU(), "Set runtime.GOMAXPROCS")
+
+	runtime.GOMAXPROCS(maxProcs)
+
+	if runFlags.Parse(os.Args[2:]) != nil {
+		log.Fatalln("can't parse arguments")
 	}
 
-	var src *domain.Source
-	err = xml.Unmarshal([]byte(data), &src)
+	p := mocker.New(cfg)
+	err := p.Process()
 	if err != nil {
-		return nil, err
+		log.Fatal(err)
 	}
 
-	return src, nil
+	if err = p.Run(); err != nil {
+		log.Fatal(err)
+	}
 }

@@ -1,0 +1,43 @@
+<xml protocol="websocket">
+    <name>API V1</name>
+    <description>API Mocker Protocol - WebSocket</description>
+
+    <onopen>
+        <response delay="10" type="text">1</response>
+    </onopen>
+
+    <onclose>
+        <response type="binary">2</response>
+    </onclose>
+
+    <onmessage>
+        <response type="text">3</response>
+    </onmessage>
+
+    <onerror>
+        <response type="text">4</response>
+    </onerror>
+
+    <ping>
+        <response type="text">Ping</response>
+    </ping>
+
+    <pong>
+        <response type="text">Pong</response>
+    </pong>
+
+    <while>
+        <message delay="10" count="10">
+            <response type="text">
+                {"msg":"every 10 sec","event":"new_chat"}
+            </response>
+        </message>
+
+        <message delay="3" count="10" >
+            <response type="text">
+                {"msg":"every 3 sec","event":"new_message"}
+            </response>
+        </message>
+    </while>
+
+</xml>
