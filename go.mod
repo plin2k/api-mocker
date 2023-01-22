@@ -2,7 +2,11 @@ module github.com/plin2k/api-mocker
 
 go 1.19
 
-require github.com/gin-gonic/gin v1.8.1
+require (
+	github.com/gin-gonic/gin v1.8.1
+	github.com/gorilla/websocket v1.5.0
+	golang.org/x/text v0.3.7
+)
 
 require (
 	github.com/gin-contrib/sse v0.1.0 // indirect
@@ -20,7 +24,6 @@ require (
 	golang.org/x/crypto v0.0.0-20220214200702-86341886e292 // indirect
 	golang.org/x/net v0.0.0-20220906165146-f3363e06e74c // indirect
 	golang.org/x/sys v0.0.0-20220728004956-3c1f35247d10 // indirect
-	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/protobuf v1.28.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
