@@ -8,7 +8,7 @@
 
 
 ## Installation
-    go install github.com/plin2k/api-mocker@latest
+    go install github.com/plin2k/api-mocker/v2@latest
 
 ### If you don't have Go
     brew install go
