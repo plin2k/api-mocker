@@ -3,7 +3,6 @@ package websocket
 import (
 	"encoding/xml"
 	"fmt"
-	"github.com/plin2k/api-mocker/config"
 	"log"
 	"math"
 	"net/http"
@@ -12,6 +11,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
+
+	"github.com/plin2k/api-mocker/config"
 )
 
 const ProtocolName = "websocket"
