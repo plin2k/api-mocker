@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/plin2k/api-mocker/config"
-	"github.com/plin2k/api-mocker/faker"
-	"github.com/plin2k/api-mocker/mocker/http"
-	"github.com/plin2k/api-mocker/mocker/websocket"
+	"github.com/plin2k/api-mocker/v2/config"
+	"github.com/plin2k/api-mocker/v2/faker"
+	"github.com/plin2k/api-mocker/v2/mocker/http"
+	"github.com/plin2k/api-mocker/v2/mocker/websocket"
 )
 
 type Handler interface {

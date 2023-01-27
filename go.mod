@@ -1,4 +1,4 @@
-module github.com/plin2k/api-mocker
+module github.com/plin2k/api-mocker/v2
 
 go 1.19
 

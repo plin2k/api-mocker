@@ -6,8 +6,8 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/plin2k/api-mocker/config"
-	"github.com/plin2k/api-mocker/mocker"
+	"github.com/plin2k/api-mocker/v2/config"
+	"github.com/plin2k/api-mocker/v2/mocker"
 )
 
 func main() {

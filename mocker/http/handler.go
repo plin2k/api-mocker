@@ -9,9 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/plin2k/api-mocker/config"
-
 	"github.com/gin-gonic/gin"
+	"github.com/plin2k/api-mocker/v2/config"
 )
 
 const (
