@@ -12,8 +12,8 @@ import (
 
 func main() {
 
-	if len(os.Args[0:]) < 1 {
-		log.Fatalln("You must pass run subcommand")
+	if len(os.Args) < 2 {
+		log.Fatal("You must pass run subcommand")
 	}
 
 	switch os.Args[1] {
