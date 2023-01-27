@@ -3,11 +3,12 @@ package mocker
 import (
 	"encoding/xml"
 	"fmt"
+	"os"
+
 	"github.com/plin2k/api-mocker/config"
 	"github.com/plin2k/api-mocker/faker"
 	"github.com/plin2k/api-mocker/mocker/http"
 	"github.com/plin2k/api-mocker/mocker/websocket"
-	"os"
 )
 
 type Handler interface {
